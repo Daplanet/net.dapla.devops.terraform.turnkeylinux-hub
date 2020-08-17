@@ -14,25 +14,25 @@ data "aws_iam_policy_document" "turnkeyhub_grants" {
   statement {
     sid = "1"
     actions = [
-        "ec2:*",
-        "route53:*",
-        "route53domains:*",
-        "cloudwatch:*"
-     ]
-      
+      "ec2:*",
+      "route53:*",
+      "route53domains:*",
+      "cloudwatch:*"
+    ]
+
     resources = ["*"]
   }
-  
+
   statement {
     sid = "2"
     actions = [
       "s3:ListAllMyBuckets",
     ]
-    resources= [
+    resources = [
       "arn:aws:s3:::*"
     ]
   }
-  
+
   statement {
     sid = "3"
     actions = [
@@ -42,7 +42,7 @@ data "aws_iam_policy_document" "turnkeyhub_grants" {
       "arn:aws:s3:::tklbam-*"
     ]
   }
-  
+
   statement {
     sid = "4"
     actions = [
