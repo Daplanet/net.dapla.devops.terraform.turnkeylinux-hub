@@ -3,7 +3,7 @@ data "aws_iam_policy_document" "turnkeyhub_assume_role" {
   statement {
     actions = ["sts:AssumeRole"]
 
-/*
+    /*
     principals {
       type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
@@ -11,9 +11,9 @@ data "aws_iam_policy_document" "turnkeyhub_assume_role" {
 */
 
     principals = {
-      type        = "AWS"
+      type = "AWS"
       identifiers = [
-	var.account_id
+        var.account_id
       ]
     }
 
@@ -22,16 +22,15 @@ data "aws_iam_policy_document" "turnkeyhub_assume_role" {
         test     = "StringEquals"
         variable = "sts:ExternalId"
 
-        values = [var.external_id,]
+        values = [var.external_id, ]
       },
-]
+    ]
 
   }
 }
 
 data "aws_iam_policy_document" "turnkeyhub_grants" {
   statement {
-    sid = "1"
     actions = [
       "ec2:*",
       "route53:*",
@@ -43,7 +42,6 @@ data "aws_iam_policy_document" "turnkeyhub_grants" {
   }
 
   statement {
-    sid = "2"
     actions = [
       "s3:ListAllMyBuckets",
     ]
@@ -53,7 +51,6 @@ data "aws_iam_policy_document" "turnkeyhub_grants" {
   }
 
   statement {
-    sid = "3"
     actions = [
       "s3:*",
     ]
@@ -63,7 +60,6 @@ data "aws_iam_policy_document" "turnkeyhub_grants" {
   }
 
   statement {
-    sid = "4"
     actions = [
       "sts:DecodeAuthorizationMessage",
     ]
