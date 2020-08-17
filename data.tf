@@ -3,10 +3,29 @@ data "aws_iam_policy_document" "turnkeyhub_assume_role" {
   statement {
     actions = ["sts:AssumeRole"]
 
+/*
     principals {
       type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
     }
+*/
+
+    principals = {
+      type        = "AWS"
+      identifiers = [
+	var.account_id
+      ]
+    }
+
+    condition = [
+      {
+        test     = "StringEquals"
+        variable = "sts:ExternalId"
+
+        values = [var.external_id,]
+      },
+]
+
   }
 }
 
