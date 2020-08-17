@@ -12,6 +12,15 @@ resource "aws_iam_role" "turnkeyhub_role" {
   assume_role_policy = data.aws_iam_policy_document.turnkeyhub_assume_role.json
 
   tags = {
-    owner = "denzuko"
+    owner       = "denzuko"
+    application = "hub.turnkeylinux.org"
   }
+}
+
+resource "aws_iam_policy_attachment" "turnkeyhub_role_attach" {
+  name = "turnkeyhub_role_attachment"
+  roles = [
+    aws_iam_role.turnkeyhub_role.name,
+  ]
+  policy_arn = aws_iam_policy.turnkeyhub_policy.arn
 }
