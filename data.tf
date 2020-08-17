@@ -10,22 +10,19 @@ data "aws_iam_policy_document" "turnkeyhub_assume_role" {
     }
 */
 
-    principals = {
+    principals {
       type = "AWS"
       identifiers = [
         var.account_id
       ]
     }
 
-    condition = [
-      {
-        test     = "StringEquals"
-        variable = "sts:ExternalId"
+    condition {
+      test     = "ForAnyValue:StringEquals"
+      variable = "sts:ExternalId"
 
-        values = [var.external_id, ]
-      },
-    ]
-
+      values = [var.external_id, ]
+    }
   }
 }
 
