@@ -1,4 +1,4 @@
-![banner](https://banner.dapla.net/?utm_campaign=community-buildpacks&utm_source=github.com/daplanet/xelatex-buildpack&utm_medium=markdown)
+![banner](https://banner.dapla.net/?utm_campaign=community-buildpacks&utm_source=github.com/daplanet/net.dapla.devops.terraform.turnkeylinux-hub&utm_medium=markdown)
 
-# turnkeylinux-terraform ![Turnkey Linux Role setup - Terraform](https://github.com/denzuko/turnkeylinux-terraform/workflows/Turnkey%20Linux%20Role%20setup%20-%20Terraform/badge.svg)
+# turnkeylinux-terraform ![Turnkey Linux Role setup - Terraform](https://github.com/Daplanet/net.dapla.devops.terraform.turnkeylinux-hub/workflows/Turnkey%20Linux%20Role%20setup%20-%20Terraform/badge.svg)
 Policy management for trk hub.
